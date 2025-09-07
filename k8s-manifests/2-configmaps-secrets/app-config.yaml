@@ -1,0 +1,9 @@
+# app-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: kubereats
+data:
+  database.url: "jdbc:mysql://mysql-service:3306"
+  redis.host: "redis-service"

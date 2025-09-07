@@ -1,0 +1,16 @@
+# k8s-manifests/3-persistent-volumes/redis-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: kubereats
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector: # This is optional but good for clarity. It binds the PVC to a specific PV.
+    matchLabels:
+      app: redis

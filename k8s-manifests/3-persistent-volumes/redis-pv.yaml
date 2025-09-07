@@ -1,0 +1,17 @@
+# PersistentVolume is also a cluster-scoped resource.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-pv
+  # namespace: kubereats  # <- THIS WOULD ALSO BE AN ERROR. PV is cluster-scoped.
+  labels:
+    type: local
+    app: redis
+spec:
+  storageClassName: manual # <- This PV belongs to the "manual" StorageClass
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/redis"
