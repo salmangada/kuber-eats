@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM eclipse-temurin:21 AS build
+FROM eclipse-temurin:17 AS build
 
 # Set working directory
 WORKDIR /build
@@ -21,7 +21,7 @@ COPY restaurant-service/src restaurant-service/src
 RUN ./mvnw -B -f restaurant-service/pom.xml package -DskipTests
 
 # Stage 2: Runtime
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /restaurant-service
 

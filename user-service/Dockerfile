@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM eclipse-temurin:21 AS build
+FROM eclipse-temurin:17 AS build
 
 # Set working directory
 WORKDIR /build
@@ -21,7 +21,7 @@ COPY user-service/src user-service/src
 RUN ./mvnw -B -f user-service/pom.xml package -DskipTests
 
 # Stage 2: Runtime
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /user-service
 

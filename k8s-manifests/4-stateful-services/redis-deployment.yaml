@@ -16,8 +16,8 @@ spec:
       containers:
         - name: redis
           image: redis:7-alpine
-          command: ["redis-server"]
-          args: ["--appendonly", "yes"] # Enable Redis persistence
+          command: [ "redis-server" ]
+          args: [ "--appendonly", "yes" ] # Enable Redis persistence
           ports:
             - containerPort: 6379
           volumeMounts:

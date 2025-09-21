@@ -1,22 +1,22 @@
-# user-service-deployment.yaml
+# restaurant-service-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-service
+  name: restaurant-service
   namespace: kubereats
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: user-service
+      app: restaurant-service
   template:
     metadata:
       labels:
-        app: user-service
+        app: restaurant-service
     spec:
       containers:
-        - name: user-service
-          image: user-service:latest
+        - name: restaurant-service
+          image: restaurant-service:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -38,12 +38,12 @@ spec:
                   key: db-username
           livenessProbe:
             httpGet:
-              path: /user-service/actuator/health
+              path: /restaurant-service/actuator/health
               port: 8080
             initialDelaySeconds: 90
           readinessProbe:
             httpGet:
-              path: /user-service/actuator/health
+              path: /restaurant-service/actuator/health
               port: 8080
             initialDelaySeconds: 30
           resources:
