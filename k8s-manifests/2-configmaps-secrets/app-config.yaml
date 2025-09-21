@@ -5,5 +5,5 @@ metadata:
   name: app-config
   namespace: kubereats
 data:
-  database.url: "jdbc:mysql://mysql-service:3306"
+  database.url: "jdbc:mysql://mysql-service:3306/kubereats?allowPublicKeyRetrieval=true&useSSL=false"
   redis.host: "redis-service"
